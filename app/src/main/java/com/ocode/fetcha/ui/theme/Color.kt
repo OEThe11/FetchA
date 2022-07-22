@@ -2,7 +2,9 @@ package com.ocode.fetcha.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+val BlazeOrange200 = Color(0XFFFFA140)
+val BlazeOrange500 = Color(0XFFFF7000)
+val BlazeOrange700 = Color(0XFFC43F00)
+val LightGreen200 = Color(0XFF9AFFA5)
+
+//the higher the number, the lighter the color
