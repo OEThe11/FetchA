@@ -5,6 +5,5 @@ import dagger.hilt.android.HiltAndroidApp
 
 
 @HiltAndroidApp
-class FetchAApplication: Application() {
+class FetchAApplication: Application()
 
-}

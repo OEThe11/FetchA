@@ -26,20 +26,22 @@ import com.ocode.fetcha.navigation.FetchScreens
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(navController: NavController){
+fun SplashScreen(navController: NavController) {
 
-    val scale =  remember {
+    val scale = remember {
         Animatable(0f)
     }
 
     LaunchedEffect(key1 = true, block = {
-        scale.animateTo(targetValue = 0.9f,
-                            animationSpec = tween(
-                                durationMillis = 800,
-                                easing = {
-                                    OvershootInterpolator(8f)
-                                        .getInterpolation(it)
-                                }))
+        scale.animateTo(
+            targetValue = 0.9f,
+            animationSpec = tween(
+                durationMillis = 800,
+                easing = {
+                    OvershootInterpolator(8f)
+                        .getInterpolation(it)
+                })
+        )
 
         delay(2000L)
         navController.navigate(FetchScreens.SingleListScreen.name)
@@ -58,11 +60,13 @@ fun SplashScreen(navController: NavController){
             modifier = Modifier.padding(1.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
-        ){
-            Image(painter = painterResource(id = R.drawable.fetch),
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.fetch),
                 contentDescription = "App Icon",
                 contentScale = ContentScale.Fit,
-                modifier = Modifier.size(275.dp))
+                modifier = Modifier.size(275.dp)
+            )
         }
     }
 

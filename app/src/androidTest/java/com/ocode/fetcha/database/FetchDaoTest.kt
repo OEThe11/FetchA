@@ -20,6 +20,9 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 @SmallTest
 class FetchDaoTest {
+
+
+    //Allows the test to run the code one after another on one thread
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
@@ -27,7 +30,7 @@ class FetchDaoTest {
     private lateinit var dao: FetchDao
 
     @Before
-    fun setup(){
+    fun setup() {
         database = Room.inMemoryDatabaseBuilder(
             ApplicationProvider.getApplicationContext(),
             FetchDatabase::class.java
@@ -36,7 +39,7 @@ class FetchDaoTest {
     }
 
     @After
-    fun teardown(){
+    fun teardown() {
         database.close()
     }
 

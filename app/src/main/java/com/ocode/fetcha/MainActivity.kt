@@ -24,22 +24,23 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FetchATheme {
-              SingleListApp()
+                SingleListApp()
             }
         }
     }
 }
 
 @Composable
-fun SingleListApp(){
+fun SingleListApp() {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-        Column(verticalArrangement = Arrangement.Center,
+        Column(
+            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-           FetchNavigation()
+            FetchNavigation()
         }
     }
 }

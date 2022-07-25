@@ -44,24 +44,25 @@ fun SingleListScreen(navController: NavController, viewModel: FetchViewModel = h
          modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 55.dp),
-         color = MaterialTheme.colors.primary) {
-         fetchItems?.let {
-               it1 ->
-            if (loading){
+         color = MaterialTheme.colors.primary
+      ) {
+         fetchItems?.let { it1 ->
+            if (loading) {
                CircularIndeterminateProgressBar(isDisplayed = true)
-            }else{
+            } else {
                MainList(list = it1)
             }
-             }
+         }
       }
 
    }
 }
 
+//The replacement for RecyclerView
 @Composable
-fun MainList(list: List<FetchItemEntity>){
-   LazyColumn{
-      items(list){ item ->
+fun MainList(list: List<FetchItemEntity>) {
+   LazyColumn {
+      items(list) { item ->
          FetchCard(fetchItem = item)
       }
    }

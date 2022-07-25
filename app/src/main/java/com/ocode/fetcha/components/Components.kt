@@ -41,19 +41,24 @@ fun FetchAppBar(
 @Composable
 fun CircularIndeterminateProgressBar(
     isDisplayed: Boolean
-){
-    Surface(modifier = Modifier
-        .fillMaxSize(),
-        color = MaterialTheme.colors.primary) {
-        if (isDisplayed){
-            Row(modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 90.dp),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically) {
-                CircularProgressIndicator(modifier = Modifier
+) {
+    Surface(
+        modifier = Modifier
+            .fillMaxSize(),
+        color = MaterialTheme.colors.primary
+    ) {
+        if (isDisplayed) {
+            Row(
+                modifier = Modifier
                     .fillMaxSize()
-                    .padding(20.dp),
+                    .padding(top = 90.dp),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(20.dp),
                     strokeWidth = 10.dp,
                     color = Color.White
                 )

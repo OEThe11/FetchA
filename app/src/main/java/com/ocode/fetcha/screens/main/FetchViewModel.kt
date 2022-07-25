@@ -16,12 +16,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 private const val TAG = "FetchViewModel"
+
 @HiltViewModel
 class FetchViewModel @Inject constructor(
     private val repository: FetchRepository
-): ViewModel(){
+) : ViewModel() {
 
-    val fetchInfoResults : LiveData<List<FetchItemEntity>> = Transformations.map(repository.feeds){
+    val fetchInfoResults: LiveData<List<FetchItemEntity>> = Transformations.map(repository.feeds) {
         it
     }
 
@@ -31,15 +32,17 @@ class FetchViewModel @Inject constructor(
         getFetchList()
     }
 
+
+    //loading the suspended function with a loading component
     private fun getFetchList() {
-        viewModelScope.launch{
+        viewModelScope.launch {
             loading.value = true
             delay(2000)
             try {
-               if (repository.fetchInfo()!!.isNotEmpty()){
-                   loading.value = false
-               }
-            }catch (e: Exception){
+                if (repository.fetchInfo()!!.isNotEmpty()) {
+                    loading.value = false
+                }
+            } catch (e: Exception) {
                 Log.e(TAG, e.message, e.cause)
                 loading.value = true
             }

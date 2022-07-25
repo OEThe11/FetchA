@@ -10,23 +10,23 @@ import org.junit.Test
 class FetchItemEntityTest {
 
     @Test
-    fun `id returns null`(){
+    fun `id returns null`() {
         val result = FetchItemEntity(
-             0, 2, "jesse"
+            0, 2, "jesse"
         )
         assertThat(result.name).isNull()
     }
 
     @Test
-    fun `name accepts a empty string`(){
+    fun `name accepts a empty string`() {
         val result = FetchItemEntity(
             15, 2, " "
         )
-        assertThat(result).isEqualTo(FetchItemEntity(15, 2," "))
+        assertThat(result).isEqualTo(FetchItemEntity(15, 2, " "))
     }
 
     @Test
-    fun `listId accepts a negative number`(){
+    fun `listId accepts a negative number`() {
         val result = FetchItemEntity(
             0, -3, " "
         )

@@ -44,14 +44,13 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideFetchApi(): FetchApi{
+    fun provideFetchApi(): FetchApi {
         val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(FetchApi::class.java)
-
 
 
     }

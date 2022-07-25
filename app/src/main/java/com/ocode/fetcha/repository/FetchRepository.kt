@@ -8,8 +8,10 @@ import com.ocode.fetcha.mapping.FetchItemMapper
 import com.ocode.fetcha.network.FetchApi
 import javax.inject.Inject
 
-class FetchRepository @Inject constructor(private val api: FetchApi,
-                                          private val fetchDao: FetchDao) {
+class FetchRepository @Inject constructor(
+    private val api: FetchApi,
+    private val fetchDao: FetchDao
+) {
 
     private val allInfoFeeds: LiveData<List<FetchItemEntity>> = fetchDao.getAllInfo()
     private val _infoFeeds: MediatorLiveData<List<FetchItemEntity>> = MediatorLiveData()
@@ -17,14 +19,16 @@ class FetchRepository @Inject constructor(private val api: FetchApi,
         get() = _infoFeeds
 
     init {
-      _infoFeeds.addSource(allInfoFeeds){
-          _infoFeeds.value = it
-      }
+        _infoFeeds.addSource(allInfoFeeds) {
+            _infoFeeds.value = it
+        }
     }
 
-    suspend fun fetchInfo(): List<FetchItemEntity>?{
+
+    //The Filtering of null and Empty Strings happens here
+    suspend fun fetchInfo(): List<FetchItemEntity>? {
         val request = api.getAllFetchInfo()
-        if (request.isSuccessful){
+        if (request.isSuccessful) {
             val fetchItems = request.body()!!.filter {
                 !it.name.isNullOrEmpty()
             }.map {

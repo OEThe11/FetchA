@@ -17,35 +17,53 @@ import com.ocode.fetcha.database.FetchItemEntity
 
 @Preview
 @Composable
+//The Container
 fun FetchCard(fetchItem: FetchItemEntity = FetchItemEntity(4, 56, "ty")) {
-    Card(modifier = Modifier
-        .fillMaxWidth()
-        .height(110.dp)
-        .padding(16.dp),
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(110.dp)
+            .padding(16.dp),
         shape = RoundedCornerShape(size = 20.dp),
         backgroundColor = MaterialTheme.colors.primaryVariant,
-        elevation = 10.dp) {
+        elevation = 10.dp
+    ) {
         Row(horizontalArrangement = Arrangement.SpaceBetween) {
-            Column(modifier = Modifier.padding(start = 16.dp, top = 10.dp,
-                bottom = 10.dp, end = 10.dp)) {
-                Text(text = "ListId:",
+            Column(
+                modifier = Modifier.padding(
+                    start = 16.dp, top = 10.dp,
+                    bottom = 10.dp, end = 10.dp
+                )
+            ) {
+                Text(
+                    text = "ListId:",
                     style = MaterialTheme.typography.h6,
                     fontStyle = FontStyle.Italic
                 )
-                Text(text = "${fetchItem.listId}",
+                Text(
+                    text = "${fetchItem.listId}",
                     style = MaterialTheme.typography.h5,
-                    fontWeight = FontWeight.Bold)
+                    fontWeight = FontWeight.Bold
+                )
             }
 
-            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp,
-                bottom = 10.dp, end = 16.dp)) {
-                Text(text = "Name:",
+            Column(
+                modifier = Modifier.padding(
+                    start = 10.dp, top = 10.dp,
+                    bottom = 10.dp, end = 16.dp
+                )
+            ) {
+                Text(
+                    text = "Name:",
                     modifier = Modifier.align(Alignment.End),
                     style = MaterialTheme.typography.h6,
-                    fontStyle = FontStyle.Italic)
-                Text(text = fetchItem.name,
+                    fontStyle = FontStyle.Italic
+                )
+                Text(
+                    text = fetchItem.name,
                     style = MaterialTheme.typography.h5,
-                    fontWeight = FontWeight.Bold)
+                    fontWeight = FontWeight.Bold
+                )
             }
         }
 
