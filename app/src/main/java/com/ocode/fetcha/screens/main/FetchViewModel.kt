@@ -22,9 +22,7 @@ class FetchViewModel @Inject constructor(
     private val repository: FetchRepository
 ) : ViewModel() {
 
-    val fetchInfoResults: LiveData<List<FetchItemEntity>> = Transformations.map(repository.feeds) {
-        it
-    }
+    val fetchInfoResults = repository.feeds
 
     val loading = mutableStateOf(false)
 

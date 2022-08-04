@@ -13,16 +13,8 @@ class FetchRepository @Inject constructor(
     private val fetchDao: FetchDao
 ) {
 
-    private val allInfoFeeds: LiveData<List<FetchItemEntity>> = fetchDao.getAllInfo()
-    private val _infoFeeds: MediatorLiveData<List<FetchItemEntity>> = MediatorLiveData()
     val feeds: LiveData<List<FetchItemEntity>>
-        get() = _infoFeeds
-
-    init {
-        _infoFeeds.addSource(allInfoFeeds) {
-            _infoFeeds.value = it
-        }
-    }
+        get() = fetchDao.getAllInfo()
 
 
     //The Filtering of null and Empty Strings happens here
